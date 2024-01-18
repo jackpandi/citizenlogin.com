@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    #loginForm {
+      width: 300px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="loginForm">
+    <h2>Login</h2>
+    <form onsubmit="validateLogin(); return false;">
+      <label for="loginId">Country Name:</label>
+      <input type="text" id="loginId" name="loginId" required><br>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" disabled required><br>
+
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <script>
+    function validateLogin() {
+      var loginId = document.getElementById('loginId').value;
+      var password = document.getElementById('password').value;
+
+      if (loginId.toUpperCase() === 'BHARAT') {
+        document.getElementById('password').removeAttribute('disabled');
+
+        if (password === 'JAIHIND') {
+          window.location.href = 'welcome.html';
+        } else {
+          alert('Incorrect password. Please try again.');
+        }
+      } else {
+        alert('Incorrect login ID. Please try again.');
+      }
+    }
+  </script>
+
+</body>
+</html>
